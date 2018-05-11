@@ -12,23 +12,22 @@ struct TimeConstraint{
     // struct for Time Constraints
     // make use of inbuilt date and time objects in swift
     
-    var flag : Bool!
     let calendar : Calendar
-    let start : Int
-    let end : Int
+    let startOfConstraint : Int
+    let endOfConstraint : Int
     let calendarComponent : Calendar.Component
     
-    init(calendar : Calendar, start : Int, end : Int, calendarComponent : Calendar.Component){
+    init(calendar : Calendar, startOfConstraint : Int, endOfConstraint : Int, calendarComponent : Calendar.Component){
         self.calendar = calendar
-        self.start = start
-        self.end = end
+        self.startOfConstraint = startOfConstraint
+        self.endOfConstraint = endOfConstraint
         self.calendarComponent = calendarComponent
     }
     
     func isSatisfied(date : Date) -> Bool{
         let dateComponents = self.calendar.dateComponents([self.calendarComponent], from : date)
         if let dateComponent = dateComponents.value(for: calendarComponent){
-            if ((dateComponent >= self.start) && (dateComponent <= self.end)){
+            if ((dateComponent >= self.startOfConstraint) && (dateComponent <= self.endOfConstraint)){
                 return true
             }
         }
