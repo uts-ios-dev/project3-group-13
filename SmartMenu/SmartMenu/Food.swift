@@ -8,21 +8,27 @@
 
 import Foundation
 
+enum FoodType {
+    case alcoholicDrink, nonAlcoholicDrink, starter, side, main, dessert, light
+}
+
+// Food struct
 struct Food{
-    //struct to hold food items
-    
     let name : String
-    //let image :
     let description : String
+    let type : FoodType
     let cost : Double
+    let imageData : String
     let waitTimeMinutes : Int
     let timeConstraints : [TimeConstraint]
     let suggestions : [Food]
     
-    init (name : String, description : String, cost : Double, suggestions : [Food], timeConstraints : [TimeConstraint], waitTimeMinutes : Int){
+    init (name : String, description : String, type : FoodType, cost : Double, imageData : String, suggestions : [Food], timeConstraints : [TimeConstraint], waitTimeMinutes : Int){
         self.name = name
         self.description = description
+        self.type = type
         self.cost = cost
+        self.imageData = imageData
         self.suggestions = suggestions
         self.timeConstraints = timeConstraints
         self.waitTimeMinutes = waitTimeMinutes
