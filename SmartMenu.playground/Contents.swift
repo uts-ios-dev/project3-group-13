@@ -2,28 +2,26 @@
 
 import UIKit
 
-
 struct TimeConstraint{
     // struct for Time Constraints
     // make use of inbuilt date and time objects in swift
 
-    var flag : Bool!
     let calendar : Calendar
-    let start : Int
-    let end : Int
+    let startOfConstraint : Int
+    let endOfConstraint : Int
     let calendarComponent : Calendar.Component
     
-    init(calendar : Calendar, start : Int, end : Int, calendarComponent : Calendar.Component){
+    init(calendar : Calendar, startOfConstraint : Int, endOfConstraint : Int, calendarComponent : Calendar.Component){
         self.calendar = calendar
-        self.start = start
-        self.end = end
+        self.startOfConstraint = startOfConstraint
+        self.endOfConstraint = endOfConstraint
         self.calendarComponent = calendarComponent
     }
     
     func isSatisfied(date : Date) -> Bool{
         let dateComponents = self.calendar.dateComponents([self.calendarComponent], from : date)
         if let dateComponent = dateComponents.value(for: calendarComponent){
-            if ((dateComponent >= self.start) && (dateComponent <= self.end)){
+            if ((dateComponent >= self.startOfConstraint) && (dateComponent <= self.endOfConstraint)){
                 return true
             }
         }
@@ -31,22 +29,27 @@ struct TimeConstraint{
     }
 }
 
- 
+enum FoodType {
+    case alcoholicDrink, nonAlcoholicDrink, starter, side, main, dessert, light
+}
 
 // Food struct
 struct Food{
     let name : String
-    //let image :
     let description : String
+    let type : FoodType
     let cost : Double
+    let imageData : String
     let waitTimeMinutes : Int
     let timeConstraints : [TimeConstraint]
     let suggestions : [Food]
     
-    init (name : String, description : String, cost : Double, suggestions : [Food], timeConstraints : [TimeConstraint], waitTimeMinutes : Int){
+    init (name : String, description : String, type : FoodType, cost : Double, imageData : String, suggestions : [Food], timeConstraints : [TimeConstraint], waitTimeMinutes : Int){
         self.name = name
         self.description = description
+        self.type = type
         self.cost = cost
+        self.imageData = imageData
         self.suggestions = suggestions
         self.timeConstraints = timeConstraints
         self.waitTimeMinutes = waitTimeMinutes
@@ -60,8 +63,9 @@ struct Food{
         }
         return true
     }
+    
+    
 }
-
 
 struct Menu{
     var date : Date
@@ -97,13 +101,50 @@ struct OrderItem{
         self.quantity = quantity
         self.orderDate = orderDate
     }
+    
+    /*
+    static func ==( leftOrderItem : OrderItem, rightOrderItem : OrderItem) -> bool{
+        if (leftOrderItem.food == rightOrderItem.food) && (leftOrderItem.quantity == rightOrderItem.quantity) && (leftOrderItem.orderDate == rightOrderItem.orderDate) {
+            return false
+        }
+    }
+  */
+    
+    func debug(){
+        print ("\(food.name), \(quantity), \(orderDate)")
+    }
 }
-
 
 struct Order{
-    let orderItems : [OrderItem]
+    var orderItems : [OrderItem]
+    
+    init(orderItem : OrderItem){
+        self.orderItems = [orderItem]
+    }
+    
+    init(orderItems : [OrderItem]){
+        self.orderItems = orderItems
+    }
+    
+    mutating func addOrderItem(orderItem : OrderItem){
+        orderItems.append(orderItem)
+    }
+    
+    mutating func clear(){
+        orderItems.removeAll()
+    }
+   
+    // TODO overload the == and != operators for both Food and OrderItem
+    mutating func removeOrderItem(orderItem : OrderItem){
+        self.orderItems = self.orderItems.filter({($0.orderDate != orderItem.orderDate) && ($0.food.name != orderItem.food.name)})
+    }
+   
+    func debug(){
+        for orderItem in orderItems{
+            orderItem.debug()
+        }
+    }
 }
-
 
 // Demo
 
@@ -112,16 +153,32 @@ calendar.locale
 
 // set up time constraints
 
-let morningTimeConstraint = TimeConstraint(calendar: calendar, start: 7, end: 10, calendarComponent : Calendar.Component.hour)
-let lunchTimeConstraint = TimeConstraint(calendar: calendar, start: 11, end: 15, calendarComponent : Calendar.Component.hour)
-let weekendConstraint = TimeConstraint(calendar: calendar, start: 6, end: 7, calendarComponent: Calendar.Component.weekday)
+let breakfastConstraint = TimeConstraint(calendar: calendar, startOfConstraint: 7, endOfConstraint: 10, calendarComponent : Calendar.Component.hour)
+let lunchTimeConstraint = TimeConstraint(calendar: calendar, startOfConstraint: 11, endOfConstraint: 15, calendarComponent : Calendar.Component.hour)
+let dinnerConstraint = TimeConstraint(calendar: calendar, startOfConstraint: 15, endOfConstraint: 20, calendarComponent : Calendar.Component.hour)
+let lunchDinnerConstraint = TimeConstraint(calendar: calendar, startOfConstraint: 11, endOfConstraint: 20, calendarComponent: Calendar.Component.hour)
+let weekendConstraint = TimeConstraint(calendar: calendar, startOfConstraint: 6, endOfConstraint: 7, calendarComponent: Calendar.Component.weekday)
 
 
 //Set up some food
 
-let eggs = Food(name: "eggs", description: "sunny side up", cost: 9.99, suggestions: [], timeConstraints: [morningTimeConstraint], waitTimeMinutes: 15)
-let steak = Food(name: "steak", description: "medium", cost: 19.99, suggestions: [], timeConstraints: [lunchTimeConstraint], waitTimeMinutes: 25)
-let morningWeekdayCoffee = Food(name: "coffee", description: "", cost: 5, suggestions: [], timeConstraints:[morningTimeConstraint, weekendConstraint] , waitTimeMinutes: 20)
+
+let bircherMuesli = Food(name: "Bircher Muesli", description: "with fresh fruit and nuts", type: FoodType.light, cost: 5, imageData: "", suggestions: [], timeConstraints: [breakfastConstraint], waitTimeMinutes: 10)
+
+let hamCheeseCrossaint = Food(name: "Crossaint", description: "with ham and cheese", type: FoodType.light, cost: 6.5, imageData: "", suggestions: [], timeConstraints: [breakfastConstraint], waitTimeMinutes: 10)
+
+let bigBreakfastCrossaint = Food(name: "Penny Lane's Big Breakfast", description: "Two eggs of your choice, roast tomato, sauteed muchroom and spinach, sliced avocado, bacon, sausage, hash brown. Served with a side of sourdough    ", type: FoodType.main, cost: 18, imageData: "", suggestions: [], timeConstraints: [breakfastConstraint], waitTimeMinutes: 15)
+
+let shoestringFries = Food(name: "Shoestring fries", description: "with aioli", type: FoodType.light, cost: 5, imageData: "", suggestions: [], timeConstraints: [lunchDinnerConstraint], waitTimeMinutes: 10)
+
+let cheeseBurger = Food(name: "Classic Cheese Burger", description: "Wagyu beef patty with cheddar cheese, tomato, lettuce, tomato sauce and mayo", type: FoodType.main, cost: 12, imageData: "", suggestions: [], timeConstraints: [lunchDinnerConstraint], waitTimeMinutes: 15)
+
+let nachos = Food(name: "Beef Nachos", description: "with spicy salsa, guacamole, sour cream and cheese", type: FoodType.main, cost: 14, imageData: "", suggestions: [], timeConstraints: [lunchTimeConstraint], waitTimeMinutes: 15)
+
+let margheritaPizza = Food(name: "Margherita Pizza", description: "Fresh tomato, basil and mozzarella", type: FoodType.main, cost: 12, imageData: "", suggestions: [], timeConstraints: [dinnerConstraint], waitTimeMinutes: 15)
+
+let foodItems = [bircherMuesli, hamCheeseCrossaint, bigBreakfastCrossaint, shoestringFries, cheeseBurger, nachos, margheritaPizza]
+
 
 //Set up some dates
 
@@ -139,19 +196,40 @@ let lunchDateTime = calendar.date(from: lunchDateComponents)
 //Set up some menus
 
 
-let morningMenu = Menu(date: morningDateTime!, foodItems: [eggs, steak, morningWeekdayCoffee])
-let sundayMorningMenu = Menu(date: sundayMorningDateTime!, foodItems: [eggs, steak, morningWeekdayCoffee])
-let lunchMenu = Menu(date: lunchDateTime!, foodItems: [eggs, steak, morningWeekdayCoffee])
-let rightNowMenu = Menu(date: Date(), foodItems: [eggs, steak, morningWeekdayCoffee])
+let morningMenu = Menu(date: morningDateTime!, foodItems: foodItems)
+let sundayMorningMenu = Menu(date: sundayMorningDateTime!, foodItems:  foodItems)
+let lunchMenu = Menu(date: lunchDateTime!, foodItems: foodItems)
+let rightNowMenu = Menu(date: Date(), foodItems: foodItems)
 
 
-//Playground has no debugging
+//Playground has no debugging - simple print statements to roughly check functionality
+//menu funtionality
+
 
 print ("morning menu")
 morningMenu.debug()
-print ("sunday morning menu")
+print ("\nsunday morning menu")
 sundayMorningMenu.debug()
-print ("lunch menu")
+print ("\nlunch menu")
 lunchMenu.debug()
-print ("right now menu")
+print ("\nright now menu")
 rightNowMenu.debug()
+
+
+// order functionality
+
+let bircherOrder = OrderItem(food : bircherMuesli, quantity : 1, orderDate : Date())
+let crossaintOrder = OrderItem(food: hamCheeseCrossaint, quantity: 2, orderDate: Date())
+var order = Order(orderItem: bircherOrder)
+
+print ("\nnew order")
+order.debug()
+order.removeOrderItem(orderItem: bircherOrder)
+print ("\nremove muesli")
+order.debug()
+order.addOrderItem(orderItem: crossaintOrder)
+print ("\nradd crossaints muesli")
+order.debug()
+
+
+
