@@ -9,5 +9,26 @@
 import Foundation
 
 struct Order{
-    let orderItems : [OrderItem]
+    var orderItems : [OrderItem]
+    
+    init(orderItem : OrderItem){
+        self.orderItems = [orderItem]
+    }
+    
+    init(orderItems : [OrderItem]){
+        self.orderItems = orderItems
+    }
+    
+    mutating func addOrderItem(orderItem : OrderItem){
+        orderItems.append(orderItem)
+    }
+    
+    mutating func clear(){
+        orderItems.removeAll()
+    }
+    
+    // TODO overload the == and != operators for both Food and OrderItem
+    mutating func removeOrderItem(orderItem : OrderItem){
+        self.orderItems = self.orderItems.filter({($0.orderDate != orderItem.orderDate) && ($0.food.name != orderItem.food.name)})
+    }
 }
