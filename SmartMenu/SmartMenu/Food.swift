@@ -12,8 +12,8 @@ enum FoodType {
     case alcoholicDrink, nonAlcoholicDrink, starter, side, main, dessert, light
 }
 
-// Food struct
-struct Food{
+// Food object
+class Food {
     let name : String
     let description : String
     let type : FoodType
@@ -23,7 +23,7 @@ struct Food{
     let timeConstraints : [TimeConstraint]
     let suggestions : [Food]
     
-    init (name : String, description : String, type : FoodType, cost : Double, imageData : String, suggestions : [Food], timeConstraints : [TimeConstraint], waitTimeMinutes : Int){
+    init (name : String, description : String, type : FoodType, cost : Double, imageData : String, suggestions : [Food], timeConstraints : [TimeConstraint], waitTimeMinutes : Int) {
         self.name = name
         self.description = description
         self.type = type
@@ -34,9 +34,9 @@ struct Food{
         self.waitTimeMinutes = waitTimeMinutes
     }
     
-    func validateTimeConstraints(date : Date) -> Bool {
-        for timeConstraint in self.timeConstraints{
-            if !timeConstraint.isSatisfied(date : date){
+    func isValid(date : Date) -> Bool {
+        for timeConstraint in self.timeConstraints {
+            if !timeConstraint.isSatisfied(date : date) {
                 return false
             }
         }
