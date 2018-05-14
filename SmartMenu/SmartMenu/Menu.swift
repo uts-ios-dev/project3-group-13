@@ -8,20 +8,14 @@
 
 import Foundation
 
-struct Menu{
-    var date : Date
+class Menu {
     var foodItems : [Food]
     
-    init (date : Date, foodItems : [Food]){
-        self.date = date
+    init (foodItems : [Food]) {
         self.foodItems = foodItems
-        self.validateFoodItems()
-        self.foodItems = foodItems
-        validateFoodItems()
     }
     
-    mutating func validateFoodItems(){
-        self.foodItems = self.foodItems.filter({$0.validateTimeConstraints(date : self.date)})
+    func validFood(at: Date) -> [Food] {
+        return self.foodItems.filter({$0.isValid(date : at)})
     }
-    
 }
