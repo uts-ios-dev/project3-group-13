@@ -63,24 +63,15 @@ struct Food{
         }
         return true
     }
-    
-    
 }
 
 struct Menu{
-    var date : Date
-    var foodItems : [Food]
+    let date : Date
+    let foodItems : [Food]
     
     init (date : Date, foodItems : [Food]){
         self.date = date
-        self.foodItems = foodItems
-        self.validateFoodItems()
-        self.foodItems = foodItems
-        validateFoodItems()
-    }
-    
-    mutating func validateFoodItems(){
-        self.foodItems = self.foodItems.filter({$0.validateTimeConstraints(date : self.date)})
+        self.foodItems = foodItems.filter({$0.validateTimeConstraints(date : date)})
     }
     
     func debug(){
@@ -228,7 +219,7 @@ order.removeOrderItem(orderItem: bircherOrder)
 print ("\nremove muesli")
 order.debug()
 order.addOrderItem(orderItem: crossaintOrder)
-print ("\nradd crossaints muesli")
+print ("\nadd crossaints")
 order.debug()
 
 
