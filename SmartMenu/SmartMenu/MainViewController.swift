@@ -8,30 +8,20 @@
 
 import UIKit
 
-
-
-
-
-
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UITableViewController {
 
     let list = ["milk","honey","bread","tocos","tomatoes"]
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (list.count)
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "foodCell")
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath)
         cell.textLabel?.text = list[indexPath.row]
         return (cell)
     }
-    
-    
-    
-    
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,7 +33,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
