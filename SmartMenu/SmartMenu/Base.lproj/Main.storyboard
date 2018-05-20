@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" textLabel="kfJ-54-Vba" style="IBUITableViewCellStyleDefault" id="3Lu-ex-amN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" textLabel="kfJ-54-Vba" detailTextLabel="jAM-M2-9kG" style="IBUITableViewCellStyleSubtitle" id="3Lu-ex-amN">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Lu-ex-amN" id="zFw-l7-PHs">
@@ -27,9 +27,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kfJ-54-Vba">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jAM-M2-9kG">
+                                            <rect key="frame" x="16" y="25.5" width="33" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -135,6 +142,10 @@
                         <viewLayoutGuide key="safeArea" id="9JY-1L-dBc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Food Details" id="T4i-l9-S0R"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Aw6-Gp-J89" id="yyn-od-AXq"/>
+                        <outlet property="nameLabel" destination="8JJ-Dc-rRd" id="yyV-Mg-ZQC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdG-oQ-0xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
