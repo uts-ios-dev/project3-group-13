@@ -36,12 +36,12 @@ enum FoodType {
 
 // Food object
 class Food: Hashable {
-    var hashValue: Int
     
-    static func ==(lhs: Food, rhs: Food) -> Bool {
-        <#code#>
+    
+    var hashValue: Int {
+        return name.hashValue ^ description.hashValue ^ type.hashValue ^ cost.hashValue
     }
-    
+
     let name : String
     let description : String
     let type : FoodType
