@@ -16,14 +16,14 @@ class OrderViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return order.orderItems.count
+        return order.toList().count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath)
-        let item = order.orderItems[indexPath.row]
-        cell.textLabel?.text = "\(item.quantity)x \(item.food.name)"
-        cell.detailTextLabel?.text = "$\(item.food.cost*Double(item.quantity))"
+        let item = order.toList()[indexPath.row]
+        cell.textLabel?.text = "\(item.value)x \(item.key.name)"
+        cell.detailTextLabel?.text = "$\(item.key.cost*Double(item.value))"
         return (cell)
     }
     
