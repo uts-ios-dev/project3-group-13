@@ -31,4 +31,8 @@ class OrderViewController: UITableViewController {
         super.viewDidLoad()
         assert(order != nil)
     }
+    
+    @IBAction func clearOrder(_ sender: Any) {
+        order.clear()
+    }
 }

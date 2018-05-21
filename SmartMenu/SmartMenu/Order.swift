@@ -17,13 +17,14 @@ class Order {
     
     func add(food: Food){
         var quantity = quantityOf(food: food)
-        quantity -= 1
+        quantity += 1
         setQuantity(quantity, of: food)
     }
 
     func subtract(food: Food) {
         var quantity = quantityOf(food: food)
-        quantity += 1
+        guard quantity > 0 else { return }
+        quantity -= 1
         setQuantity(quantity, of: food)
     }
     
@@ -42,6 +43,10 @@ class Order {
     }
 
     func setQuantity(_ quantity: Int, of food: Food) {
-        items[food] = quantity
+        if quantity == 0 {
+            items.removeValue(forKey: food)
+        } else {
+         items[food] = quantity
+        }
     }
 }
