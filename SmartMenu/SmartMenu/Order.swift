@@ -35,7 +35,7 @@ class Order {
         }
     }
     
-    func toList() -> [(Food, Int)] {
+    func toList() -> [(key: Food, value: Int)] {
         return items.sorted { (a: (key:Food, value:Int), b:(key:Food,value:Int)) -> Bool in
             return a.key.name < b.key.name
         }
