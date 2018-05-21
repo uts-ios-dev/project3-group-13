@@ -101,7 +101,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Order" id="dGZ-Jl-CQh">
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="zGr-OG-LXc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="zGr-OG-LXc">
+                            <connections>
+                                <action selector="clearOrder:" destination="yjC-3Y-OCl" id="1tg-Xk-7E6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aq-ke-OYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
