@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UITableViewController {
     let menu: Menu = TestData().getTestMenu() //TODO load data from file
+    var order: Order = TestData().getTestOrder() //TODO Order()
     var date: Date = Date()
     var sectionList: [FoodSection] = []
     
@@ -18,16 +19,16 @@ class MainViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionList[section].foodType.description
+        return sectionList[section].header
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionList[section].foodList.count
+        return sectionList[section].list.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath)
-        let food = sectionList[indexPath.section].foodList[indexPath.row]
+        let food = sectionList[indexPath.section].list[indexPath.row]
         cell.textLabel?.text = food.name
         cell.detailTextLabel?.text = food.description
         return (cell)
@@ -42,7 +43,11 @@ class MainViewController: UITableViewController {
         if segue.identifier == "foodDetail" {
             let selectedIndex = self.tableView.indexPathForSelectedRow!
             let fvc = segue.destination as! FoodViewController
-            fvc.food = sectionList[selectedIndex.section].foodList[selectedIndex.row]
+            fvc.food = sectionList[selectedIndex.section].list[selectedIndex.row]
+            fvc.order = order
+        } else if segue.identifier == "orderDetail" {
+            let ovc = segue.destination as! OrderViewController
+            ovc.order = order
         }
     }
 }

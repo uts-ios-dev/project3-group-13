@@ -10,6 +10,7 @@ import UIKit
 
 class FoodViewController: UIViewController {
     var food: Food!
+    var order: Order!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -17,6 +18,7 @@ class FoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(food != nil)
+        assert(order != nil)
         nameLabel.text = food.name
         descriptionLabel.text = food.description
     }

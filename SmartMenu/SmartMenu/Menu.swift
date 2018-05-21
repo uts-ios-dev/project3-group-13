@@ -9,7 +9,7 @@
 import Foundation
 
 class Menu {
-    var foodItems : [Food]
+    let foodItems : [Food]
     
     init (foodItems : [Food]) {
         self.foodItems = foodItems

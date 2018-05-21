@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3EF34A1920A4440000AD3C60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF34A1820A4440000AD3C60 /* MainViewController.swift */; };
 		3EF95A4520A9434400D6064B /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF95A4420A9434400D6064B /* FoodViewController.swift */; };
+		63B03F5D20B2603000EEAB77 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B03F5C20B2603000EEAB77 /* OrderViewController.swift */; };
 		63E550BC20B191BE00094B19 /* FoodSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E550BB20B191BE00094B19 /* FoodSection.swift */; };
 		CB54DAD120A956DA00A6CC1C /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54DAD020A956DA00A6CC1C /* TestData.swift */; };
 		CBE65DFF20A3ED20001B815A /* TimeConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE65DFE20A3ED20001B815A /* TimeConstraint.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		3EF34A1820A4440000AD3C60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3EF95A4420A9434400D6064B /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		63B03F5C20B2603000EEAB77 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		63E550BB20B191BE00094B19 /* FoodSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSection.swift; sourceTree = "<group>"; };
 		CB54DAD020A956DA00A6CC1C /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		CBE65DFE20A3ED20001B815A /* TimeConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConstraint.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				CBF15E5120A0535400611DD7 /* LaunchScreen.storyboard */,
 				CBF15E5420A0535400611DD7 /* Info.plist */,
 				63E550BB20B191BE00094B19 /* FoodSection.swift */,
+				63B03F5C20B2603000EEAB77 /* OrderViewController.swift */,
 			);
 			path = SmartMenu;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				CBE65E0520A3ED32001B815A /* Menu.swift in Sources */,
 				CBE65DFF20A3ED20001B815A /* TimeConstraint.swift in Sources */,
 				CBE65E0620A3ED32001B815A /* Food.swift in Sources */,
+				63B03F5D20B2603000EEAB77 /* OrderViewController.swift in Sources */,
 				CBF15E4920A0535400611DD7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,8 +9,8 @@
 import Foundation
 
 struct FoodSection {
-    var foodType: FoodType
-    var foodList: [Food]
+    var header: String
+    var list: [Food]
     
     static func fromList(_ list: [Food]) -> [FoodSection] {
         var map: [FoodType: [Food]] = [:]
@@ -22,7 +22,10 @@ struct FoodSection {
         }
         var sections: [FoodSection] = []
         for (foodType, foodList) in map {
-            sections.append(FoodSection(foodType: foodType, foodList: foodList))
+            sections.append(FoodSection(header: foodType.description, list: foodList))
+        }
+        if sections.count == 0 {
+            sections.append(FoodSection(header: "Nothing available at this time", list: []))
         }
         return sections
     }
