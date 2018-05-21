@@ -14,7 +14,7 @@ class FoodViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var order: UILabel!
+    @IBOutlet weak var orderLabel: UILabel!
     
     
     
@@ -27,21 +27,23 @@ class FoodViewController: UIViewController {
         descriptionLabel.text = food.description
         
     }
+/*
     override func viewDidAppear(_ animated: Bool) {
-      order.text = "Order: " + String(ordered)
+      orderLabel.text = "Order: " + String(ordered)
     }
-@IBAction func addOrder(_ sender: UIBarButtonItem) {
-    ordered += 1
-    print (ordered)
-    order.text = "Order: " + String(ordered)
-}
+    
+    @IBAction func addOrder(_ sender: UIBarButtonItem) {
+        ordered += 1
+        print (ordered)
+        orderLabel.text = "Order: " + String(ordered)
+    }
 
-@IBAction func reduceOrder(_ sender: UIBarButtonItem) {
-    if ordered > 0 {
-        ordered -= 1
-    order.text = "Order: " + String(ordered)
-    print (ordered)
-        
+    @IBAction func reduceOrder(_ sender: UIBarButtonItem) {
+        if ordered > 0 {
+            ordered -= 1
+        orderLabel.text = "Order: " + String(ordered)
+        print (ordered)
         }
     }
+*/
 }
