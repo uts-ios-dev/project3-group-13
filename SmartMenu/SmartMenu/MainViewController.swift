@@ -8,11 +8,40 @@
 
 import UIKit
 
-class MainViewController: UITableViewController {
+protocol ReturnPreviewDateDelegate {
+    func setPreviewDateTime(_ date: Date?)
+    func dismissContainer()
+}
+
+class MainViewController: UITableViewController, ReturnPreviewDateDelegate {
+    func dismissContainer() {
+        previewContainer.removeFromSuperview()
+        let tv = view as! UITableView
+        tv.isScrollEnabled = true
+    }
+    
+    func setPreviewDateTime(_ date: Date?) {
+        //TODO
+    }
+    
     let menu: Menu = TestData().getTestMenu() //TODO load data from file
     var order: Order = TestData().getTestOrder() //TODO Order()
     var date: Date = Date()
     var sectionList: [FoodSection] = []
+    
+    @IBOutlet var previewContainer: UIView!
+    
+    @IBAction func previewButtonClick(_ sender: Any) {
+        let tv = view as! UITableView
+        tv.setContentOffset(CGPoint.zero, animated: false)
+        tv.isScrollEnabled = false
+        previewContainer.frame = CGRect(x: 0, y: -60, width: view.frame.width, height: view.frame.height)
+        previewContainer.transform = CGAffineTransform.init(translationX: 0.0, y: previewContainer.frame.height)
+        view.addSubview(previewContainer)
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+            self.previewContainer.transform = .identity
+        }, completion: nil)
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sectionList.count
@@ -48,6 +77,9 @@ class MainViewController: UITableViewController {
         } else if segue.identifier == "orderDetail" {
             let ovc = segue.destination as! OrderViewController
             ovc.order = order
+        } else if segue.identifier == "previewPicker" {
+            let dtvc = segue.destination as! DateTimeViewController
+            dtvc.returnDelegate = self
         }
     }
 }

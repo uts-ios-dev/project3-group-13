@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,15 +50,29 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Current Menu" id="Vk6-9Z-Dbb">
-                        <barButtonItem key="leftBarButtonItem" title="Preview at..." id="Z09-l4-lUo"/>
+                        <barButtonItem key="leftBarButtonItem" title="Preview at..." id="Z09-l4-lUo">
+                            <connections>
+                                <action selector="previewButtonClick:" destination="tJn-29-UfJ" id="pf5-5l-5oy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="View Order" id="0th-d4-fB0">
                             <connections>
                                 <segue destination="yjC-3Y-OCl" kind="show" identifier="orderDetail" id="BR0-P3-OfD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="previewContainer" destination="r9t-Dk-ieu" id="wjw-eW-oTk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOm-Rx-AWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <containerView opaque="NO" contentMode="scaleToFill" id="r9t-Dk-ieu">
+                    <rect key="frame" x="0.0" y="0.0" width="363" height="203"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <connections>
+                        <segue destination="IbZ-pa-rcH" kind="embed" identifier="previewPicker" id="JYd-q0-GZT"/>
+                    </connections>
+                </containerView>
             </objects>
             <point key="canvasLocation" x="308" y="-76.011994002998506"/>
         </scene>
@@ -126,32 +141,46 @@
                                 <state key="normal" title="Back"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blur-breakfast-close-up-376464" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Te-1IS">
-                                <rect key="frame" x="42" y="227" width="300" height="297"/>
+                                <rect key="frame" x="71" y="327" width="255" height="221"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-Dc-rRd">
-                                <rect key="frame" x="42" y="95" width="290" height="21"/>
+                                <rect key="frame" x="42" y="95" width="229" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-Gp-J89">
-                                <rect key="frame" x="42" y="150" width="284" height="69"/>
+                                <rect key="frame" x="42" y="150" width="284" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-Ha-Y2c">
-                                <rect key="frame" x="222" y="64" width="94" height="29"/>
+                                <rect key="frame" x="253" y="576" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="addOrMinus:" destination="V6a-rL-2Dm" eventType="valueChanged" id="666-BS-wuM"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-A3-hMa">
-                                <rect key="frame" x="324" y="68" width="42" height="21"/>
+                                <rect key="frame" x="199" y="580" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity in order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-9m-wq0">
+                                <rect key="frame" x="54" y="580" width="150" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dM-i3a">
+                                <rect key="frame" x="285" y="95" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -163,9 +192,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Food Details" id="T4i-l9-S0R"/>
                     <connections>
+                        <outlet property="costLabel" destination="Z7x-dM-i3a" id="PKi-FZ-nQw"/>
                         <outlet property="descriptionLabel" destination="Aw6-Gp-J89" id="yyn-od-AXq"/>
                         <outlet property="nameLabel" destination="8JJ-Dc-rRd" id="yyV-Mg-ZQC"/>
-                        <outlet property="quantity" destination="sPe-A3-hMa" id="W1q-zz-gR0"/>
+                        <outlet property="quantityLabel" destination="sPe-A3-hMa" id="HMX-Ow-86T"/>
+                        <outlet property="quantityStepper" destination="DIa-Ha-Y2c" id="HRc-Ws-bZ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdG-oQ-0xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,6 +220,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dW-GE-GWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-546" y="-76"/>
+        </scene>
+        <!--Date Time View Controller-->
+        <scene sceneID="yAk-Ik-CNp">
+            <objects>
+                <viewController id="IbZ-pa-rcH" customClass="DateTimeViewController" customModule="SmartMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k4E-5j-fBJ">
+                        <rect key="frame" x="0.0" y="0.0" width="363" height="203"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhU-Vl-SGZ">
+                                <rect key="frame" x="-0.5" y="-0.5" width="363" height="203"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UQ2-7M-x5p">
+                                    <rect key="frame" x="0.0" y="0.0" width="363" height="203"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="F3y-a7-IE6">
+                                <rect key="frame" x="-40" y="-55" width="443" height="233"/>
+                                <date key="date" timeIntervalSinceReferenceDate="548569422.29491901">
+                                    <!--2018-05-21 04:23:42 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="us4-C7-9DR">
+                                <rect key="frame" x="246" y="173" width="117" height="30"/>
+                                <state key="normal" title="Preview this time"/>
+                                <connections>
+                                    <action selector="clearPreview:" destination="IbZ-pa-rcH" eventType="touchUpInside" id="in5-N4-Cnp"/>
+                                    <action selector="setPreview:" destination="IbZ-pa-rcH" eventType="touchUpInside" id="7aD-l1-mTd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pE3-ls-up9">
+                                <rect key="frame" x="0.0" y="173" width="94" height="30"/>
+                                <state key="normal" title="Clear preview"/>
+                                <connections>
+                                    <action selector="clearPreview:" destination="IbZ-pa-rcH" eventType="touchUpInside" id="bSD-UF-EJQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wve-fY-BrX">
+                                <rect key="frame" x="157.5" y="173" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="IbZ-pa-rcH" eventType="touchUpInside" id="vPL-QE-4kf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="us4-C7-9DR" secondAttribute="trailing" id="EtK-Bm-awA"/>
+                            <constraint firstItem="WhU-Vl-SGZ" firstAttribute="centerY" secondItem="k4E-5j-fBJ" secondAttribute="centerY" id="KpF-FD-VmQ"/>
+                            <constraint firstItem="WhU-Vl-SGZ" firstAttribute="width" secondItem="k4E-5j-fBJ" secondAttribute="width" id="Stf-NN-BBp"/>
+                            <constraint firstItem="Wve-fY-BrX" firstAttribute="centerX" secondItem="k4E-5j-fBJ" secondAttribute="centerX" id="fw9-wc-tJP"/>
+                            <constraint firstItem="WhU-Vl-SGZ" firstAttribute="centerX" secondItem="k4E-5j-fBJ" secondAttribute="centerX" id="jTn-bw-W8L"/>
+                            <constraint firstAttribute="bottom" secondItem="F3y-a7-IE6" secondAttribute="bottom" constant="25" id="jcb-Zc-koc"/>
+                            <constraint firstItem="Wve-fY-BrX" firstAttribute="bottom" secondItem="k4E-5j-fBJ" secondAttribute="bottomMargin" id="k6k-Nb-rFi"/>
+                            <constraint firstItem="WhU-Vl-SGZ" firstAttribute="height" secondItem="k4E-5j-fBJ" secondAttribute="height" id="rGl-Nu-6HM"/>
+                            <constraint firstAttribute="bottom" secondItem="pE3-ls-up9" secondAttribute="bottom" id="rRY-Er-uTf"/>
+                            <constraint firstAttribute="bottom" secondItem="us4-C7-9DR" secondAttribute="bottom" id="sta-dT-ukY"/>
+                            <constraint firstItem="pE3-ls-up9" firstAttribute="leading" secondItem="k4E-5j-fBJ" secondAttribute="leading" id="wdo-57-2iu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="previewDateTimePicker" destination="F3y-a7-IE6" id="wPA-5J-zN0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZT3-Im-nq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="429.53523238380814"/>
         </scene>
     </scenes>
     <resources>

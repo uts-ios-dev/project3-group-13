@@ -34,5 +34,6 @@ class OrderViewController: UITableViewController {
     
     @IBAction func clearOrder(_ sender: Any) {
         order.clear()
+        self.tableView.reloadData()
     }
 }

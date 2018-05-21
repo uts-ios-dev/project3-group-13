@@ -24,7 +24,8 @@ struct TimeConstraint{
         self.calendarComponent = calendarComponent
     }
     
-    func isSatisfied(date : Date) -> Bool{
+    func isSatisfied(date : Date) -> Bool {
+        return true
         let dateComponents = self.calendar.dateComponents([self.calendarComponent], from : date)
         if let dateComponent = dateComponents.value(for: calendarComponent){
             if ((dateComponent >= self.startOfConstraint) && (dateComponent <= self.endOfConstraint)){

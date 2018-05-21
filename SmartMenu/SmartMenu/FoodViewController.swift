@@ -14,15 +14,15 @@ class FoodViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var orderLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet weak var quantityStepper: UIStepper!
     
-    
-    @IBOutlet weak var quantity: UILabel!
     @IBAction func addOrMinus(_ sender: UIStepper) {
-       let quantitySet = Int(sender.value)
-       quantity.text = String(quantitySet)
+        let quantity = Int(sender.value)
+        order.setQuantity(quantity, of: food)
+        quantityLabel.text = String(quantity)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,25 +30,8 @@ class FoodViewController: UIViewController {
         assert(order != nil)
         nameLabel.text = food.name
         descriptionLabel.text = food.description
-        
+        costLabel.text = "$\(food.cost)"
+        quantityLabel.text = String(order.quantityOf(food: food))
+        quantityStepper.value = Double(order.quantityOf(food: food))
     }
-/*
-    override func viewDidAppear(_ animated: Bool) {
-      orderLabel.text = "Order: " + String(ordered)
-    }
-    
-    @IBAction func addOrder(_ sender: UIBarButtonItem) {
-        ordered += 1
-        print (ordered)
-        orderLabel.text = "Order: " + String(ordered)
-    }
-
-    @IBAction func reduceOrder(_ sender: UIBarButtonItem) {
-        if ordered > 0 {
-            ordered -= 1
-        orderLabel.text = "Order: " + String(ordered)
-        print (ordered)
-        }
-    }
-*/
 }
