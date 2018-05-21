@@ -79,6 +79,15 @@ struct TestData{
     func getTestMenu() -> Menu{
         return Menu(foodItems: foodItems)
     }
+    
+    func getTestOrder() -> Order {
+        var o = Order()
+        let m = getTestMenu()
+        o.add(item:OrderItem(food: m.foodItems[0], quantity:1, orderDate: Date()))
+        o.add(item:OrderItem(food: m.foodItems[1], quantity:2, orderDate: Date()))
+        o.add(item:OrderItem(food: m.foodItems[2], quantity:3, orderDate: Date()))
+        return o
+    }
 }
 
 

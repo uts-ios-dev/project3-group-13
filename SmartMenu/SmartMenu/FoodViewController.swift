@@ -9,27 +9,39 @@
 import UIKit
 
 class FoodViewController: UIViewController {
-
+    var food: Food!
+    var order: Order!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var order: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        assert(food != nil)
+        assert(order != nil)
+        nameLabel.text = food.name
+        descriptionLabel.text = food.description
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+      order.text = "Order: " + String(ordered)
     }
-    
+@IBAction func addOrder(_ sender: UIBarButtonItem) {
+    ordered += 1
+    print (ordered)
+    order.text = "Order: " + String(ordered)
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+@IBAction func reduceOrder(_ sender: UIBarButtonItem) {
+    if ordered > 0 {
+        ordered -= 1
+    order.text = "Order: " + String(ordered)
+    print (ordered)
+        
+        }
     }
-    */
-
 }

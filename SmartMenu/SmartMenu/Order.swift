@@ -11,16 +11,20 @@ import Foundation
 struct Order{
     var orderItems : [OrderItem]
     
-    init(orderItem : OrderItem){
-        self.orderItems = [orderItem]
+    init(item : OrderItem){
+        self.orderItems = [item]
     }
     
-    init(orderItems : [OrderItem]){
-        self.orderItems = orderItems
+    init(items : [OrderItem]){
+        self.orderItems = items
     }
     
-    mutating func addOrderItem(orderItem : OrderItem){
-        orderItems.append(orderItem)
+    init() {
+        self.orderItems = []
+    }
+    
+    mutating func add(item : OrderItem){
+        orderItems.append(item)
     }
     
     mutating func clear(){
@@ -28,7 +32,7 @@ struct Order{
     }
     
     // TODO overload the == and != operators for both Food and OrderItem
-    mutating func removeOrderItem(orderItem : OrderItem){
-        self.orderItems = self.orderItems.filter({($0.orderDate != orderItem.orderDate) && ($0.food.name != orderItem.food.name)})
+    mutating func remove(item : OrderItem){
+        self.orderItems = self.orderItems.filter({($0.orderDate != item.orderDate) && ($0.food.name != item.food.name)})
     }
 }
