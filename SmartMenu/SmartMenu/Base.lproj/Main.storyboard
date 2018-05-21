@@ -125,8 +125,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Te-1IS">
-                                <rect key="frame" x="42" y="227" width="290" height="297"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blur-breakfast-close-up-376464" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Te-1IS">
+                                <rect key="frame" x="42" y="227" width="300" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-Dc-rRd">
@@ -143,16 +143,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJx-KM-lFY">
-                                <rect key="frame" x="250" y="38" width="30" height="30"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-Ha-Y2c">
+                                <rect key="frame" x="222" y="64" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQG-ou-fRF">
-                                <rect key="frame" x="296" y="38" width="30" height="30"/>
+                                <connections>
+                                    <action selector="addOrMinus:" destination="V6a-rL-2Dm" eventType="valueChanged" id="666-BS-wuM"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-A3-hMa">
+                                <rect key="frame" x="324" y="68" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="-"/>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9JY-1L-dBc"/>
@@ -161,6 +165,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="Aw6-Gp-J89" id="yyn-od-AXq"/>
                         <outlet property="nameLabel" destination="8JJ-Dc-rRd" id="yyV-Mg-ZQC"/>
+                        <outlet property="quantity" destination="sPe-A3-hMa" id="W1q-zz-gR0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdG-oQ-0xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,4 +191,7 @@
             <point key="canvasLocation" x="-546" y="-76"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blur-breakfast-close-up-376464" width="2841" height="1735"/>
+    </resources>
 </document>
