@@ -35,7 +35,12 @@ enum FoodType {
 }
 
 // Food object
-class Food {
+class Food : Hashable{
+    
+    var hashValue: Int {
+        return name.hashValue ^ self.description.hashValue ^ cost.hashValue ^ type.hashValue
+    }
+    
     let name : String
     let description : String
     let type : FoodType
@@ -55,6 +60,12 @@ class Food {
         self.timeConstraints = timeConstraints
         self.waitTimeMinutes = waitTimeMinutes
     }
+    
+    
+    static func ==(lhs: Food, rhs: Food) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
     
     func isValid(date : Date) -> Bool {
         for timeConstraint in self.timeConstraints {
