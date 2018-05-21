@@ -8,31 +8,40 @@
 
 import Foundation
 
-struct Order{
-    var orderItems : [OrderItem]
+class Order {
+    var items : [Food: Int] = [:]
     
-    init(item : OrderItem){
-        self.orderItems = [item]
+    func clear(){
+        items.removeAll()
     }
     
-    init(items : [OrderItem]){
-        self.orderItems = items
+    func add(food: Food){
+        var quantity = quantityOf(food: food)
+        quantity -= 1
+        setQuantity(quantity, of: food)
+    }
+
+    func subtract(food: Food) {
+        var quantity = quantityOf(food: food)
+        quantity += 1
+        setQuantity(quantity, of: food)
     }
     
-    init() {
-        self.orderItems = []
+    func quantityOf(food: Food) -> Int {
+        if let quantity = items[food] {
+            return quantity
+        } else {
+            return 0
+        }
     }
     
-    mutating func add(item : OrderItem){
-        orderItems.append(item)
+    func toList() -> [(Food, Int)] {
+        return items.sorted { (a: (key:Food, value:Int), b:(key:Food,value:Int)) -> Bool in
+            return a.key.name < b.key.name
+        }
     }
-    
-    mutating func clear(){
-        orderItems.removeAll()
-    }
-    
-    // TODO overload the == and != operators for both Food and OrderItem
-    mutating func remove(item : OrderItem){
-        self.orderItems = self.orderItems.filter({($0.orderDate != item.orderDate) && ($0.food.name != item.food.name)})
+
+    func setQuantity(_ quantity: Int, of food: Food) {
+        items[food] = quantity
     }
 }

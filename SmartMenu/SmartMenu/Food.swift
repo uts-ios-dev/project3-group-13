@@ -35,7 +35,13 @@ enum FoodType {
 }
 
 // Food object
-class Food {
+class Food: Hashable {
+    
+    
+    var hashValue: Int {
+        return name.hashValue ^ description.hashValue ^ type.hashValue ^ cost.hashValue
+    }
+
     let name : String
     let description : String
     let type : FoodType
@@ -56,6 +62,12 @@ class Food {
         self.waitTimeMinutes = waitTimeMinutes
     }
     
+    
+    static func ==(lhs: Food, rhs: Food) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    
     func isValid(date : Date) -> Bool {
         for timeConstraint in self.timeConstraints {
             if !timeConstraint.isSatisfied(date : date) {
@@ -64,4 +76,32 @@ class Food {
         }
         return true
     }
+    /*
+    enum CodingKeys : String, CodingKey{
+        case name, description, foodType, cost, imageData, waitTimeMinutes, timeConstraints, suggestions
+    }
+    
+    func encode (to encoder : Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(description, forKey: .description)
+        //try container.encode
+        try container.encode(foodType, forKey: .foodType)
+        try container.encode(cost, forKey: .cost)
+        try container.encode(imageData, forKey: .imageData)
+        try container.encode(waitTimeMinutes, forKey: .waitTimeMinutes)
+        try container.encode(timeConstraints, forKey: .timeConstraints)
+        try container.encode(suggestions, forKey: .suggestions)
+    }
+    
+    required init(from decoder : Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        score = try container.decode(Int.self, forKey: .score)
+        frameCount = try container.decode(Int.self, forKey: .frameCount)
+        lastPoppedBubble = nil
+        numBubblesPopped = 0
+        bubbles = []
+    }
+ */
 }
