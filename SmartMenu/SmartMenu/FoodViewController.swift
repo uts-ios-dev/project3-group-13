@@ -27,23 +27,23 @@ class FoodViewController: UIViewController {
         descriptionLabel.text = food.description
         
     }
-    /*
+/*
     override func viewDidAppear(_ animated: Bool) {
       orderLabel.text = "Order: " + String(ordered)
     }
-@IBAction func addOrder(_ sender: UIBarButtonItem) {
-    ordered += 1
-    print (ordered)
-    orderLabel.text = "Order: " + String(ordered)
-}
+    
+    @IBAction func addOrder(_ sender: UIBarButtonItem) {
+        ordered += 1
+        print (ordered)
+        orderLabel.text = "Order: " + String(ordered)
+    }
 
-@IBAction func reduceOrder(_ sender: UIBarButtonItem) {
-    if ordered > 0 {
-        ordered -= 1
-    orderLabel.text = "Order: " + String(ordered)
-    print (ordered)
-        
+    @IBAction func reduceOrder(_ sender: UIBarButtonItem) {
+        if ordered > 0 {
+            ordered -= 1
+        orderLabel.text = "Order: " + String(ordered)
+        print (ordered)
         }
     }
- */
+*/
 }
