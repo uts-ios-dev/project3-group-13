@@ -12,24 +12,42 @@ class OrderViewController: UITableViewController {
     var order: Order!
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return order.toList().count
+        if section == 0{
+            return order.toList().count
+        } else{
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath)
-        let item = order.toList()[indexPath.row]
-        cell.textLabel?.text = "\(item.value)x \(item.key.name)"
-        cell.detailTextLabel?.text = "$\(item.key.cost*Double(item.value))"
-        return (cell)
+        if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath)
+            let item = order.toList()[indexPath.row]
+            cell.textLabel?.text = "\(item.value)x \(item.key.name)"
+            cell.detailTextLabel?.text = "$\(item.key.cost*Double(item.value))"
+            return (cell)
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! OrderInformationCell
+            cell.orderTotal.text = (String(format: "$%.2f", calculateTotal()))
+            return cell
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(order != nil)
+    }
+    
+    func calculateTotal() -> Double{
+        var total = 0.0
+        for foodQuantityTuple in order.toList(){
+            total += (foodQuantityTuple.key.cost * Double(foodQuantityTuple.value))
+        }
+        return total
     }
     
     override func viewWillAppear(_ animated: Bool) {
