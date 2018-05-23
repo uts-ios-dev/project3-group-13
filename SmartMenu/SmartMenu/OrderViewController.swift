@@ -28,7 +28,7 @@ class OrderViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath)
             let item = order.toList()[indexPath.row]
             cell.textLabel?.text = "\(item.value)x \(item.key.name)"
-            cell.detailTextLabel?.text = "$\(item.key.cost*Double(item.value))"
+            cell.detailTextLabel?.text = String(format: "$%.2f", item.key.cost*Double(item.value))
             return (cell)
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! OrderInformationCell
