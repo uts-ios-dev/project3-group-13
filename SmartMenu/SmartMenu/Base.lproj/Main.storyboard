@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eBN-CC-eC9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eBN-CC-eC9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -184,19 +184,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Te-1IS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Te-1IS">
                                 <rect key="frame" x="71" y="327" width="255" height="221"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-Dc-rRd">
-                                <rect key="frame" x="42" y="88" width="325" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-Dc-rRd">
+                                <rect key="frame" x="20" y="88" width="275" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="hVG-MO-dbW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-Gp-J89">
-                                <rect key="frame" x="42" y="146.5" width="284" height="24"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -207,19 +203,31 @@
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-A3-hMa">
-                                <rect key="frame" x="223" y="577" width="9.5" height="24"/>
+                                <rect key="frame" x="183" y="577" width="50" height="24"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dM-i3a">
-                                <rect key="frame" x="8" y="631" width="359" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dM-i3a">
+                                <rect key="frame" x="305" y="91" width="62" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="0FA-I4-leX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity in order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-9m-wq0">
                                 <rect key="frame" x="8" y="577" width="135" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="dET-Ra-qKF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-Gp-J89">
+                                <rect key="frame" x="20" y="146.5" width="306" height="24"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -227,26 +235,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Aw6-Gp-J89" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="42" id="28A-47-r72"/>
-                            <constraint firstItem="8JJ-Dc-rRd" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="42" id="D0e-pD-Pds"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="Z7x-dM-i3a" secondAttribute="trailing" constant="8" id="3oT-ud-L0x"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="bottom" secondItem="sPe-A3-hMa" secondAttribute="bottom" constant="66" id="8Zv-l6-Htd"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="bottom" secondItem="iSq-9m-wq0" secondAttribute="bottom" constant="66" id="AhD-31-HAk"/>
+                            <constraint firstItem="Aw6-Gp-J89" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="20" id="B3m-xr-74y"/>
+                            <constraint firstItem="sPe-A3-hMa" firstAttribute="leading" secondItem="iSq-9m-wq0" secondAttribute="trailing" constant="40" id="CoS-6v-Cwr"/>
+                            <constraint firstItem="Z7x-dM-i3a" firstAttribute="top" secondItem="9JY-1L-dBc" secondAttribute="top" constant="27" id="IX8-qb-N6I"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="bottom" secondItem="DIa-Ha-Y2c" secondAttribute="bottom" constant="62" id="Jpi-sa-L9t"/>
-                            <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="8JJ-Dc-rRd" secondAttribute="trailing" constant="8" id="LSP-vN-x3J"/>
                             <constraint firstItem="8JJ-Dc-rRd" firstAttribute="top" secondItem="9JY-1L-dBc" secondAttribute="top" constant="24" id="LWB-2z-IzT"/>
-                            <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="Z7x-dM-i3a" secondAttribute="trailing" constant="8" id="N5A-7V-ylk"/>
-                            <constraint firstItem="Z7x-dM-i3a" firstAttribute="top" secondItem="iSq-9m-wq0" secondAttribute="bottom" constant="30" id="O1s-36-ZGj"/>
                             <constraint firstItem="iSq-9m-wq0" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="P8f-ey-3Bg"/>
                             <constraint firstItem="DIa-Ha-Y2c" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="28" id="PYz-MV-BFl"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="Aw6-Gp-J89" secondAttribute="trailing" constant="49" id="Pgc-BC-Nav"/>
-                            <constraint firstItem="Z7x-dM-i3a" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="VjK-ww-X1s"/>
+                            <constraint firstItem="Aw6-Gp-J89" firstAttribute="top" secondItem="Z7x-dM-i3a" secondAttribute="bottom" constant="27.5" id="eE2-Zb-JqX"/>
                             <constraint firstItem="bL2-Te-1IS" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="49" id="eLw-nY-cy9"/>
                             <constraint firstItem="bL2-Te-1IS" firstAttribute="top" secondItem="Aw6-Gp-J89" secondAttribute="bottom" constant="10" id="gMB-kK-9Sh"/>
+                            <constraint firstItem="Z7x-dM-i3a" firstAttribute="leading" secondItem="8JJ-Dc-rRd" secondAttribute="trailing" constant="10" id="itS-50-PNy"/>
+                            <constraint firstItem="8JJ-Dc-rRd" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="20" id="m1Z-lH-x2A"/>
                             <constraint firstItem="Aw6-Gp-J89" firstAttribute="top" secondItem="8JJ-Dc-rRd" secondAttribute="bottom" constant="23.5" id="pbO-SG-pQb"/>
                             <constraint firstItem="DIa-Ha-Y2c" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="28" id="q6L-dc-WtO"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="bL2-Te-1IS" secondAttribute="trailing" constant="49" id="s9F-SQ-gFy"/>
                             <constraint firstItem="DIa-Ha-Y2c" firstAttribute="leading" secondItem="sPe-A3-hMa" secondAttribute="trailing" constant="20.5" id="wTc-Ca-VP7"/>
-                            <constraint firstItem="9JY-1L-dBc" firstAttribute="bottom" secondItem="Z7x-dM-i3a" secondAttribute="bottom" constant="8" id="wsh-v1-V5i"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="DIa-Ha-Y2c" secondAttribute="trailing" constant="28" id="yfX-jd-cqM"/>
-                            <constraint firstItem="Z7x-dM-i3a" firstAttribute="top" secondItem="sPe-A3-hMa" secondAttribute="bottom" constant="30" id="zEc-X9-xuV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9JY-1L-dBc"/>
                     </view>
@@ -262,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdG-oQ-0xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2142" y="-58"/>
+            <point key="canvasLocation" x="2141.5999999999999" y="-58.020989505247378"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JFV-sK-cKW">
