@@ -188,50 +188,66 @@
                                 <rect key="frame" x="71" y="327" width="255" height="221"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-Dc-rRd">
-                                <rect key="frame" x="42" y="95" width="229" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-Dc-rRd">
+                                <rect key="frame" x="42" y="88" width="325" height="35"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-Gp-J89">
-                                <rect key="frame" x="42" y="150" width="284" height="102"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-Gp-J89">
+                                <rect key="frame" x="42" y="146.5" width="284" height="24"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-Ha-Y2c">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-Ha-Y2c">
                                 <rect key="frame" x="253" y="576" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="addOrMinus:" destination="V6a-rL-2Dm" eventType="valueChanged" id="666-BS-wuM"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-A3-hMa">
-                                <rect key="frame" x="199" y="580" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-A3-hMa">
+                                <rect key="frame" x="223" y="577" width="9.5" height="24"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity in order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-9m-wq0">
-                                <rect key="frame" x="54" y="580" width="150" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dM-i3a">
+                                <rect key="frame" x="8" y="631" width="359" height="28"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dM-i3a">
-                                <rect key="frame" x="285" y="95" width="62" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity in order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-9m-wq0">
+                                <rect key="frame" x="8" y="577" width="135" height="24"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Aw6-Gp-J89" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="42" id="28A-47-r72"/>
+                            <constraint firstItem="8JJ-Dc-rRd" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="42" id="D0e-pD-Pds"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="bottom" secondItem="DIa-Ha-Y2c" secondAttribute="bottom" constant="62" id="Jpi-sa-L9t"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="8JJ-Dc-rRd" secondAttribute="trailing" constant="8" id="LSP-vN-x3J"/>
+                            <constraint firstItem="8JJ-Dc-rRd" firstAttribute="top" secondItem="9JY-1L-dBc" secondAttribute="top" constant="24" id="LWB-2z-IzT"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="Z7x-dM-i3a" secondAttribute="trailing" constant="8" id="N5A-7V-ylk"/>
+                            <constraint firstItem="Z7x-dM-i3a" firstAttribute="top" secondItem="iSq-9m-wq0" secondAttribute="bottom" constant="30" id="O1s-36-ZGj"/>
+                            <constraint firstItem="iSq-9m-wq0" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="P8f-ey-3Bg"/>
+                            <constraint firstItem="DIa-Ha-Y2c" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="28" id="PYz-MV-BFl"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="Aw6-Gp-J89" secondAttribute="trailing" constant="49" id="Pgc-BC-Nav"/>
+                            <constraint firstItem="Z7x-dM-i3a" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="VjK-ww-X1s"/>
+                            <constraint firstItem="bL2-Te-1IS" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="49" id="eLw-nY-cy9"/>
+                            <constraint firstItem="bL2-Te-1IS" firstAttribute="top" secondItem="Aw6-Gp-J89" secondAttribute="bottom" constant="10" id="gMB-kK-9Sh"/>
+                            <constraint firstItem="Aw6-Gp-J89" firstAttribute="top" secondItem="8JJ-Dc-rRd" secondAttribute="bottom" constant="23.5" id="pbO-SG-pQb"/>
+                            <constraint firstItem="DIa-Ha-Y2c" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="28" id="q6L-dc-WtO"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="bL2-Te-1IS" secondAttribute="trailing" constant="49" id="s9F-SQ-gFy"/>
+                            <constraint firstItem="DIa-Ha-Y2c" firstAttribute="leading" secondItem="sPe-A3-hMa" secondAttribute="trailing" constant="20.5" id="wTc-Ca-VP7"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="bottom" secondItem="Z7x-dM-i3a" secondAttribute="bottom" constant="8" id="wsh-v1-V5i"/>
+                            <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="DIa-Ha-Y2c" secondAttribute="trailing" constant="28" id="yfX-jd-cqM"/>
+                            <constraint firstItem="Z7x-dM-i3a" firstAttribute="top" secondItem="sPe-A3-hMa" secondAttribute="bottom" constant="30" id="zEc-X9-xuV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9JY-1L-dBc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Food Details" id="T4i-l9-S0R"/>

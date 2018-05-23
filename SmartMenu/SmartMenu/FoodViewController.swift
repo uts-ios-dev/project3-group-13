@@ -20,7 +20,7 @@ class FoodViewController: UIViewController {
     
     @IBOutlet weak var foodImage: UIImageView!
     @IBAction func addOrMinus(_ sender: UIStepper) {
-        let quantity = Int(sender.value)
+        let quantity = Int(sender.value) 
         order.setQuantity(quantity, of: food)
         quantityLabel.text = String(quantity)
         
