@@ -32,8 +32,21 @@ class OrderViewController: UITableViewController {
         assert(order != nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     @IBAction func clearOrder(_ sender: Any) {
         order.clear()
         self.tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "foodDetailFromOrderDetail" {
+            let selectedIndex = self.tableView.indexPathForSelectedRow!
+            let fvc = segue.destination as! FoodViewController
+            fvc.food = order.toList()[selectedIndex.row].key
+            fvc.order = order
+        }
     }
 }
