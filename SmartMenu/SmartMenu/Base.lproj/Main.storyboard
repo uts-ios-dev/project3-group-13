@@ -129,7 +129,7 @@
                                             <rect key="frame" x="20" y="6" width="109" height="30"/>
                                             <state key="normal" title="Send to Kitchen"/>
                                             <connections>
-                                                <action selector="sendToKitchen:" destination="JJR-WS-E1L" eventType="touchUpInside" id="4RZ-ZZ-N1W"/>
+                                                <action selector="sendToKitchenTapped:" destination="JJR-WS-E1L" eventType="touchUpInside" id="Ajn-hl-sfd"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tir-f9-XXV">
@@ -156,6 +156,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="orderTotal" destination="TSQ-49-jZI" id="kSp-lp-Lsz"/>
+                                    <outlet property="sendToKitchenButton" destination="1Fa-QN-Mib" id="JMo-BQ-0PG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

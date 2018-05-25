@@ -8,7 +8,9 @@
 
 import UIKit
 
-class OrderViewController: UITableViewController {
+class OrderViewController: UITableViewController, OrderInformationCellDelegate {
+   
+    
     var order: Order!
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,6 +35,7 @@ class OrderViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! OrderInformationCell
             cell.orderTotal.text = (String(format: "$%.2f", calculateTotal()))
+            cell.delegate = self
             return cell
         }
     }
@@ -40,6 +43,15 @@ class OrderViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(order != nil)
+    }
+    
+    func pressedSendToKitchen(_ sender: OrderInformationCell) {
+        let orderConfirmationController = UIAlertController(title: "Send Order to Kitchen", message: "Are you sure you want send order?", preferredStyle: .alert)
+        let confirmOrderAction = UIAlertAction(title: "Confirm", style: .default, handler: nil)
+        let cancelOrderAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        orderConfirmationController.addAction(confirmOrderAction)
+        orderConfirmationController.addAction(cancelOrderAction)
+        present(orderConfirmationController, animated: true)
     }
     
     func calculateTotal() -> Double{
