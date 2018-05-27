@@ -17,15 +17,13 @@ class FoodViewController: UIViewController {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var quantityStepper: UIStepper!
-    
     @IBOutlet weak var foodImage: UIImageView!
     @IBAction func addOrMinus(_ sender: UIStepper) {
         let quantity = Int(sender.value) 
         order.setQuantity(quantity, of: food)
         quantityLabel.text = String(quantity)
         
-    }
-    
+    }    
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(food != nil)
