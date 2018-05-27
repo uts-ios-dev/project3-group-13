@@ -38,4 +38,10 @@ class FoodViewController: UIViewController {
         let myFoodImage: UIImage! = UIImage(named: food.imageData)
         foodImage.image = myFoodImage
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "foodDetailToMain" {
+            let fvc = segue.destination as! MainViewController
+            fvc.order = order
+        }
+    }
 }
