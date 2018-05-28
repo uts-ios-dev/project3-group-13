@@ -194,7 +194,7 @@
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-A3-hMa">
-                                <rect key="frame" x="151" y="635" width="114" height="24"/>
+                                <rect key="frame" x="151" y="630" width="114" height="29"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Quantity in order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-9m-wq0">
-                                <rect key="frame" x="8" y="635" width="135" height="24"/>
+                                <rect key="frame" x="8" y="630" width="135" height="29"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -231,6 +231,7 @@
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="bL2-Te-1IS" secondAttribute="trailing" constant="8" id="BGK-un-bUo"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="bottom" secondItem="iSq-9m-wq0" secondAttribute="bottom" constant="8" id="Bnb-fD-UHg"/>
                             <constraint firstItem="iSq-9m-wq0" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="CJr-hC-zih"/>
+                            <constraint firstItem="sPe-A3-hMa" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="8" id="E3V-gx-KAs"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="bottom" secondItem="sPe-A3-hMa" secondAttribute="bottom" constant="8" id="JMN-pc-d1e"/>
                             <constraint firstItem="bL2-Te-1IS" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="JPy-QG-CKE"/>
                             <constraint firstItem="Z7x-dM-i3a" firstAttribute="top" secondItem="9JY-1L-dBc" secondAttribute="top" constant="8" id="Kyn-jh-L3G"/>
@@ -242,8 +243,9 @@
                             <constraint firstItem="Z7x-dM-i3a" firstAttribute="leading" secondItem="8JJ-Dc-rRd" secondAttribute="trailing" constant="8" id="cqe-79-lNg"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="Aw6-Gp-J89" secondAttribute="trailing" constant="8" id="gxC-d8-5NC"/>
                             <constraint firstItem="Aw6-Gp-J89" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="lT3-UM-8je"/>
+                            <constraint firstItem="iSq-9m-wq0" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="8" id="o8j-nf-ZO6"/>
                             <constraint firstItem="8JJ-Dc-rRd" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="rea-tw-dIy"/>
-                            <constraint firstItem="DIa-Ha-Y2c" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="8" id="t87-PJ-y2n"/>
+                            <constraint firstItem="DIa-Ha-Y2c" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" priority="900" constant="8" id="t87-PJ-y2n"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="DIa-Ha-Y2c" secondAttribute="trailing" constant="8" id="zbT-mL-vAR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9JY-1L-dBc"/>
