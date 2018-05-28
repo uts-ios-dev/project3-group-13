@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Menu object
 class Menu {
     let foodItems : [Food]
     

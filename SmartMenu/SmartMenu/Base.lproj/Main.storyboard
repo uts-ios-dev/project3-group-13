@@ -155,11 +155,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Order" id="dGZ-Jl-CQh">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="WaL-pY-hJH">
-                            <connections>
-                                <segue destination="mh6-jo-dnm" kind="unwind" unwindAction="unwindToMainViewControllerWithUnwindSegue:" id="Rp0-f4-YmT"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="zGr-OG-LXc">
                             <connections>
                                 <action selector="clearOrder:" destination="yjC-3Y-OCl" id="1tg-Xk-7E6"/>
@@ -168,7 +163,6 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aq-ke-OYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="mh6-jo-dnm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1368.8" y="694.90254872563719"/>
         </scene>
@@ -325,6 +319,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Go2-8l-eoU"/>
+        <segue reference="T4z-wZ-GnF"/>
     </inferredMetricsTieBreakers>
 </document>

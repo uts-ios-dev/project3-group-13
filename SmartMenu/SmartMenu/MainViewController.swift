@@ -13,19 +13,14 @@ protocol ReturnPreviewDateDelegate {
 }
 
 class MainViewController: UITableViewController, ReturnPreviewDateDelegate {
-    
-    func setPreviewDateTime(_ newDate: Date?) {
-        date = newDate
-        updateMenuDate() //TODO is this needed? - check on real mac (wont be required if ViewDidLoad() was called when segued back to MainViewController
-        tableView.reloadData() //TODO is this needed?
-    }
-    
-    let menu: Menu = TestData().getTestMenu() //TODO load data from file
+    // declarations
+    let menu: Menu = RawData().getMenu()
     var order: Order = Order()
     var date: Date?
     var sectionList: [FoodSection] = []
     let titleDateFormatter = DateFormatter()
     
+    // table view methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sectionList.count
     }
@@ -46,6 +41,7 @@ class MainViewController: UITableViewController, ReturnPreviewDateDelegate {
         return (cell)
     }
  
+    // ui methods
     override func viewDidLoad() {
         super.viewDidLoad()
         titleDateFormatter.dateFormat = "EEE, h:mm a"
@@ -78,6 +74,10 @@ class MainViewController: UITableViewController, ReturnPreviewDateDelegate {
         }
     }
     
-    @IBAction func unwindToMainViewController(unwindSegue: UIStoryboardSegue) {
+    // return methods
+    func setPreviewDateTime(_ newDate: Date?) {
+        date = newDate
+        updateMenuDate()
+        tableView.reloadData()
     }
 }

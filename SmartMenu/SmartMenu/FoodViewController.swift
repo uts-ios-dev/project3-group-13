@@ -9,21 +9,26 @@
 import UIKit
 
 class FoodViewController: UIViewController {
+    // declarations
     var food: Food!
     var order: Order!
     
+    // ui outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var quantityStepper: UIStepper!
     @IBOutlet weak var foodImage: UIImageView!
+    
+    // ui methods
     @IBAction func addOrMinus(_ sender: UIStepper) {
         let quantity = Int(sender.value) 
         order.setQuantity(quantity, of: food)
         quantityLabel.text = String(quantity)
         
-    }    
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(food != nil)

@@ -8,10 +8,8 @@
 
 import Foundation
 
-struct TimeConstraint{
-    // struct for Time Constraints
-    // make use of inbuilt date and time objects in swift
-    
+// TimeContraint struct
+struct TimeConstraint {
     let calendar : Calendar
     let startOfConstraint : Int
     let endOfConstraint : Int

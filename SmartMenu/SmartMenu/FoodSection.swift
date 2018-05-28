@@ -8,6 +8,7 @@
 
 import Foundation
 
+// FoodSection struct
 struct FoodSection {
     var header: String
     var list: [Food]

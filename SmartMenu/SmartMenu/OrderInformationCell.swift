@@ -13,27 +13,12 @@ protocol OrderInformationCellDelegate : class {
 }
 
 class OrderInformationCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     weak var delegate : OrderInformationCellDelegate?
     
     @IBOutlet weak var sendToKitchenButton: UIButton!
     @IBOutlet weak var orderTotal: UILabel!
     
     @IBAction func sendToKitchenTapped(_ sender: UIButton) {
-    
-    self.delegate?.pressedSendToKitchen(self)
+        self.delegate?.pressedSendToKitchen(self)
     }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

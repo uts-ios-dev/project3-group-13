@@ -8,10 +8,11 @@
 
 import Foundation
 
+// Order object
 class Order {
     var items : [Food: Int] = [:]
     
-    func clear(){
+    func clear() {
         items.removeAll()
     }
     
@@ -48,5 +49,13 @@ class Order {
         } else {
          items[food] = quantity
         }
+    }
+    
+    func calculateTotal() -> Double{
+        var total = 0.0
+        for (key, value) in items {
+            total += (key.cost * Double(value))
+        }
+        return total
     }
 }

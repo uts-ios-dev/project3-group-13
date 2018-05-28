@@ -9,10 +9,9 @@
 import UIKit
 
 class OrderViewController: UITableViewController, OrderInformationCellDelegate {
-   
-    
     var order: Order!
     
+    // tableview methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -34,12 +33,13 @@ class OrderViewController: UITableViewController, OrderInformationCellDelegate {
             return (cell)
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! OrderInformationCell
-            cell.orderTotal.text = (String(format: "$%.2f", calculateTotal()))
+            cell.orderTotal.text = (String(format: "$%.2f", order.calculateTotal()))
             cell.delegate = self
             return cell
         }
     }
     
+    // ui methods
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(order != nil)
@@ -51,21 +51,10 @@ class OrderViewController: UITableViewController, OrderInformationCellDelegate {
         let confirmOrderAction = UIAlertAction(title: title, style: UIAlertActionStyle.default) { (alert: UIAlertAction!) in
            self.clearOrder(alert)
         }
-//        let confirmOrderAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (alert: UIAlertAction!) in
-//            self.clearOrder(nil)
-//        })
         let cancelOrderAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         orderConfirmationController.addAction(confirmOrderAction)
         orderConfirmationController.addAction(cancelOrderAction)
         present(orderConfirmationController, animated: true)
-    }
-    
-    func calculateTotal() -> Double{
-        var total = 0.0
-        for foodQuantityTuple in order.toList(){
-            total += (foodQuantityTuple.key.cost * Double(foodQuantityTuple.value))
-        }
-        return total
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -8,16 +8,19 @@
 
 import Foundation
 
-struct TestData{
-
+// RawData struct
+struct RawData {
     var calendar : Calendar
     var foodItems : [Food]
     var breakfastConstraint : TimeConstraint
     var lunchConstraint : TimeConstraint
     var dinnerConstraint : TimeConstraint
     
+    func getMenu() -> Menu{
+        return Menu(foodItems: foodItems)
+    }
+    
     init() {
-        
         self.calendar = Calendar.current
         self.breakfastConstraint = TimeConstraint(calendar: calendar, startOfConstraint: 7, endOfConstraint: 10, calendarComponent : Calendar.Component.hour)
         self.lunchConstraint = TimeConstraint(calendar: calendar, startOfConstraint: 11, endOfConstraint: 15, calendarComponent : Calendar.Component.hour)
@@ -75,23 +78,4 @@ struct TestData{
             Food(name: "Apple & Salted Caramel Tart", description: "", type: FoodType.dessert, cost: 9, imageData: "apple salted caramel tart.jpg", suggestions: [], timeConstraints: [dinnerConstraint], waitTimeMinutes: 5),
             Food(name: "Belgian Waffles", description: "Two waffles with fresh strawberries, sliced banana & maple syrup", type: FoodType.dessert, cost: 14, imageData: "belgian waffles.jpg", suggestions: [], timeConstraints: [dinnerConstraint], waitTimeMinutes: 5)]
     }
-    
-    func getTestMenu() -> Menu{
-        return Menu(foodItems: foodItems)
-    }
-    
-    func getTestOrder() -> Order {
-        let o = Order()
-        let m = getTestMenu()
-        o.add(food: m.foodItems[0])
-        o.add(food: m.foodItems[1])
-        o.add(food: m.foodItems[1])
-        o.add(food: m.foodItems[2])
-        o.add(food: m.foodItems[2])
-        o.add(food: m.foodItems[2])
-        return o
-    }
 }
-
-
-
