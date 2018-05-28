@@ -21,7 +21,7 @@ class MainViewController: UITableViewController, ReturnPreviewDateDelegate {
     }
     
     let menu: Menu = TestData().getTestMenu() //TODO load data from file
-    var order: Order = TestData().getTestOrder() //TODO Order()
+    var order: Order = Order()
     var date: Date?
     var sectionList: [FoodSection] = []
     let titleDateFormatter = DateFormatter()

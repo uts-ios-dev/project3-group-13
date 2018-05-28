@@ -180,9 +180,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Te-1IS">
-                                <rect key="frame" x="49" y="180.5" width="277" height="367.5"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-Dc-rRd">
                                 <rect key="frame" x="20" y="88" width="66.5" height="35"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="25"/>
@@ -219,6 +216,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Te-1IS">
+                                <rect key="frame" x="49" y="220.5" width="277" height="327.5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -232,12 +232,11 @@
                             <constraint firstItem="iSq-9m-wq0" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="8" id="P8f-ey-3Bg"/>
                             <constraint firstItem="DIa-Ha-Y2c" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="28" id="PYz-MV-BFl"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="Aw6-Gp-J89" secondAttribute="trailing" constant="49" id="Pgc-BC-Nav"/>
+                            <constraint firstItem="bL2-Te-1IS" firstAttribute="top" secondItem="Aw6-Gp-J89" secondAttribute="bottom" constant="50" id="cpD-nE-8Ml"/>
                             <constraint firstItem="Aw6-Gp-J89" firstAttribute="top" secondItem="Z7x-dM-i3a" secondAttribute="bottom" constant="27.5" id="eE2-Zb-JqX"/>
                             <constraint firstItem="bL2-Te-1IS" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="49" id="eLw-nY-cy9"/>
-                            <constraint firstItem="bL2-Te-1IS" firstAttribute="top" secondItem="Aw6-Gp-J89" secondAttribute="bottom" constant="10" id="gMB-kK-9Sh"/>
                             <constraint firstItem="8JJ-Dc-rRd" firstAttribute="leading" secondItem="9JY-1L-dBc" secondAttribute="leading" constant="20" id="m1Z-lH-x2A"/>
                             <constraint firstItem="Aw6-Gp-J89" firstAttribute="top" secondItem="8JJ-Dc-rRd" secondAttribute="bottom" constant="23.5" id="pbO-SG-pQb"/>
-                            <constraint firstItem="DIa-Ha-Y2c" firstAttribute="top" secondItem="bL2-Te-1IS" secondAttribute="bottom" constant="28" id="q6L-dc-WtO"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="bL2-Te-1IS" secondAttribute="trailing" constant="49" id="s9F-SQ-gFy"/>
                             <constraint firstItem="DIa-Ha-Y2c" firstAttribute="leading" secondItem="sPe-A3-hMa" secondAttribute="trailing" constant="20.5" id="wTc-Ca-VP7"/>
                             <constraint firstItem="9JY-1L-dBc" firstAttribute="trailing" secondItem="DIa-Ha-Y2c" secondAttribute="trailing" constant="28" id="yfX-jd-cqM"/>
@@ -252,7 +251,6 @@
                         <outlet property="nameLabel" destination="8JJ-Dc-rRd" id="yyV-Mg-ZQC"/>
                         <outlet property="quantityLabel" destination="sPe-A3-hMa" id="HMX-Ow-86T"/>
                         <outlet property="quantityStepper" destination="DIa-Ha-Y2c" id="HRc-Ws-bZ8"/>
-                        <segue destination="tJn-29-UfJ" kind="show" identifier="foodDetialToMain" id="p9S-CQ-CbQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdG-oQ-0xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -328,6 +326,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Go2-8l-eoU"/>
-        <segue reference="sSQ-sJ-hoh"/>
     </inferredMetricsTieBreakers>
 </document>
