@@ -10,38 +10,21 @@ import UIKit
 
 protocol ReturnPreviewDateDelegate {
     func setPreviewDateTime(_ date: Date?)
-    func dismissContainer()
 }
 
 class MainViewController: UITableViewController, ReturnPreviewDateDelegate {
-    func dismissContainer() {
-        previewContainer.removeFromSuperview()
-        let tv = view as! UITableView
-        tv.isScrollEnabled = true
-    }
     
-    func setPreviewDateTime(_ date: Date?) {
-        //TODO
+    func setPreviewDateTime(_ newDate: Date?) {
+        date = newDate
+        updateMenuDate() //TODO is this needed? - check on real mac (wont be required if ViewDidLoad() was called when segued back to MainViewController
+        tableView.reloadData() //TODO is this needed?
     }
     
     let menu: Menu = TestData().getTestMenu() //TODO load data from file
     var order: Order = TestData().getTestOrder() //TODO Order()
-    var date: Date = Date()
+    var date: Date?
     var sectionList: [FoodSection] = []
-    
-    @IBOutlet var previewContainer: UIView!
-    
-    @IBAction func previewButtonClick(_ sender: Any) {
-        let tv = view as! UITableView
-        tv.setContentOffset(CGPoint.zero, animated: false)
-        tv.isScrollEnabled = false
-        previewContainer.frame = CGRect(x: 0, y: -60, width: view.frame.width, height: view.frame.height)
-        previewContainer.transform = CGAffineTransform.init(translationX: 0.0, y: previewContainer.frame.height)
-        view.addSubview(previewContainer)
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-            self.previewContainer.transform = .identity
-        }, completion: nil)
-    }
+    let titleDateFormatter = DateFormatter()
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sectionList.count
@@ -65,7 +48,18 @@ class MainViewController: UITableViewController, ReturnPreviewDateDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        sectionList = FoodSection.fromList(menu.validFood(at: date))
+        titleDateFormatter.dateFormat = "EEE, h:mm a"
+        updateMenuDate()
+    }
+    
+    func updateMenuDate() {
+        if let validDate = date {
+            sectionList = FoodSection.fromList(menu.validFood(at: validDate))
+            navigationItem.title = "Menu @ \(titleDateFormatter.string(from:validDate))"
+        } else {
+            sectionList = FoodSection.fromList(menu.validFood(at: Date()))
+            navigationItem.title = "Current Menu"
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,8 +72,9 @@ class MainViewController: UITableViewController, ReturnPreviewDateDelegate {
             let ovc = segue.destination as! OrderViewController
             ovc.order = order
         } else if segue.identifier == "previewPicker" {
-            let dtvc = segue.destination as! DateTimeViewController
-            dtvc.returnDelegate = self
+            let pvc = segue.destination as! PreviewViewController
+            pvc.returnDelegate = self
+            pvc.date = date
         }
     }
     

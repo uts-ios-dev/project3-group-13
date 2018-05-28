@@ -1,5 +1,5 @@
 //
-//  DateTimeViewController.swift
+//  PreviewViewController.swift
 //  SmartMenu
 //
 //  Created by David Lang on 21/5/18.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-class DateTimeViewController: UIViewController {
+class PreviewViewController: UIViewController {
     var returnDelegate: ReturnPreviewDateDelegate!
+    var date: Date?
 
     @IBOutlet weak var previewDateTimePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(returnDelegate != nil)
-    }
-
-
-    @IBAction func cancelButton(_ sender: Any) {
-        returnDelegate.dismissContainer()
+        if let validDate = date {
+            previewDateTimePicker.date = validDate
+        }
     }
     
     @IBAction func setPreview(_ sender: Any) {
         returnDelegate.setPreviewDateTime(previewDateTimePicker.date)
-        returnDelegate.dismissContainer()
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func clearPreview(_ sender: Any) {
         returnDelegate.setPreviewDateTime(nil)
-        returnDelegate.dismissContainer()
+        navigationController?.popViewController(animated: true)
     }
 }

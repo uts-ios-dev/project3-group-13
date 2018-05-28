@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eBN-CC-eC9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eBN-CC-eC9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,7 +56,7 @@
                     <navigationItem key="navigationItem" title="Current Menu" id="Vk6-9Z-Dbb">
                         <barButtonItem key="leftBarButtonItem" title="Preview at..." id="Z09-l4-lUo">
                             <connections>
-                                <action selector="previewButtonClick:" destination="tJn-29-UfJ" id="pf5-5l-5oy"/>
+                                <segue destination="kl8-Ld-5gi" kind="show" identifier="previewPicker" id="0Hu-gI-tdr"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="View Order" id="0th-d4-fB0">
@@ -66,18 +65,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="previewContainer" destination="r9t-Dk-ieu" id="wjw-eW-oTk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOm-Rx-AWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <containerView opaque="NO" contentMode="scaleToFill" id="r9t-Dk-ieu">
-                    <rect key="frame" x="0.0" y="0.0" width="363" height="203"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <connections>
-                        <segue destination="IbZ-pa-rcH" kind="embed" identifier="previewPicker" id="JYd-q0-GZT"/>
-                    </connections>
-                </containerView>
             </objects>
             <point key="canvasLocation" x="308" y="-76.011994002998506"/>
         </scene>
@@ -192,10 +181,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-Te-1IS">
-                                <rect key="frame" x="49" y="136.5" width="277" height="411.5"/>
+                                <rect key="frame" x="49" y="180.5" width="277" height="367.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-Dc-rRd">
-                                <rect key="frame" x="20" y="44" width="66.5" height="35"/>
+                                <rect key="frame" x="20" y="88" width="66.5" height="35"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -213,7 +202,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dM-i3a">
-                                <rect key="frame" x="327" y="47" width="40" height="28"/>
+                                <rect key="frame" x="327" y="91" width="40" height="28"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -225,7 +214,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-Gp-J89">
-                                <rect key="frame" x="20" y="102.5" width="306" height="24"/>
+                                <rect key="frame" x="20" y="146.5" width="306" height="24"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -288,78 +277,57 @@
             </objects>
             <point key="canvasLocation" x="-546" y="-76"/>
         </scene>
-        <!--Date Time View Controller-->
-        <scene sceneID="yAk-Ik-CNp">
+        <!--Preview at...-->
+        <scene sceneID="OQT-o6-cfr">
             <objects>
-                <viewController id="IbZ-pa-rcH" customClass="DateTimeViewController" customModule="SmartMenu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k4E-5j-fBJ">
-                        <rect key="frame" x="0.0" y="0.0" width="363" height="203"/>
+                <viewController id="kl8-Ld-5gi" customClass="PreviewViewController" customModule="SmartMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kgm-jn-OY5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhU-Vl-SGZ">
-                                <rect key="frame" x="-0.5" y="-0.5" width="363" height="203"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UQ2-7M-x5p">
-                                    <rect key="frame" x="0.0" y="0.0" width="363" height="203"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="F3y-a7-IE6">
-                                <rect key="frame" x="-40" y="-55" width="443" height="233"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="F3y-a7-IE6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="548569422.29491901">
                                     <!--2018-05-21 04:23:42 +0000-->
                                 </date>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="us4-C7-9DR">
-                                <rect key="frame" x="246" y="173" width="117" height="30"/>
-                                <state key="normal" title="Preview this time"/>
+                                <rect key="frame" x="6" y="305" width="363" height="30"/>
+                                <state key="normal" title="Preview at this date &amp; time"/>
                                 <connections>
-                                    <action selector="clearPreview:" destination="IbZ-pa-rcH" eventType="touchUpInside" id="in5-N4-Cnp"/>
-                                    <action selector="setPreview:" destination="IbZ-pa-rcH" eventType="touchUpInside" id="7aD-l1-mTd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pE3-ls-up9">
-                                <rect key="frame" x="0.0" y="173" width="94" height="30"/>
-                                <state key="normal" title="Clear preview"/>
-                                <connections>
-                                    <action selector="clearPreview:" destination="IbZ-pa-rcH" eventType="touchUpInside" id="bSD-UF-EJQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wve-fY-BrX">
-                                <rect key="frame" x="157.5" y="173" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelButton:" destination="IbZ-pa-rcH" eventType="touchUpInside" id="vPL-QE-4kf"/>
+                                    <action selector="setPreview:" destination="kl8-Ld-5gi" eventType="touchUpInside" id="FWm-zR-v9H"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="us4-C7-9DR" secondAttribute="trailing" id="EtK-Bm-awA"/>
-                            <constraint firstItem="WhU-Vl-SGZ" firstAttribute="centerY" secondItem="k4E-5j-fBJ" secondAttribute="centerY" id="KpF-FD-VmQ"/>
-                            <constraint firstItem="WhU-Vl-SGZ" firstAttribute="width" secondItem="k4E-5j-fBJ" secondAttribute="width" id="Stf-NN-BBp"/>
-                            <constraint firstItem="Wve-fY-BrX" firstAttribute="centerX" secondItem="k4E-5j-fBJ" secondAttribute="centerX" id="fw9-wc-tJP"/>
-                            <constraint firstItem="WhU-Vl-SGZ" firstAttribute="centerX" secondItem="k4E-5j-fBJ" secondAttribute="centerX" id="jTn-bw-W8L"/>
-                            <constraint firstAttribute="bottom" secondItem="F3y-a7-IE6" secondAttribute="bottom" constant="25" id="jcb-Zc-koc"/>
-                            <constraint firstItem="Wve-fY-BrX" firstAttribute="bottom" secondItem="k4E-5j-fBJ" secondAttribute="bottomMargin" id="k6k-Nb-rFi"/>
-                            <constraint firstItem="WhU-Vl-SGZ" firstAttribute="height" secondItem="k4E-5j-fBJ" secondAttribute="height" id="rGl-Nu-6HM"/>
-                            <constraint firstAttribute="bottom" secondItem="pE3-ls-up9" secondAttribute="bottom" id="rRY-Er-uTf"/>
-                            <constraint firstAttribute="bottom" secondItem="us4-C7-9DR" secondAttribute="bottom" id="sta-dT-ukY"/>
-                            <constraint firstItem="pE3-ls-up9" firstAttribute="leading" secondItem="k4E-5j-fBJ" secondAttribute="leading" id="wdo-57-2iu"/>
+                            <constraint firstItem="F3y-a7-IE6" firstAttribute="leading" secondItem="lS7-Hk-vd8" secondAttribute="leading" id="5Od-yU-Lfy"/>
+                            <constraint firstItem="F3y-a7-IE6" firstAttribute="trailing" secondItem="lS7-Hk-vd8" secondAttribute="trailing" id="5n4-ms-ogg"/>
+                            <constraint firstItem="us4-C7-9DR" firstAttribute="leading" secondItem="lS7-Hk-vd8" secondAttribute="leading" constant="6" id="7Xp-hd-ZuV"/>
+                            <constraint firstItem="F3y-a7-IE6" firstAttribute="top" secondItem="lS7-Hk-vd8" secondAttribute="top" id="HVf-dB-7sD"/>
+                            <constraint firstItem="us4-C7-9DR" firstAttribute="top" secondItem="F3y-a7-IE6" secondAttribute="bottom" constant="25" id="XTT-Vd-Rbj"/>
+                            <constraint firstItem="lS7-Hk-vd8" firstAttribute="trailing" secondItem="us4-C7-9DR" secondAttribute="trailing" constant="6" id="lTd-qi-bVi"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="aSo-x7-yVb"/>
+                        <viewLayoutGuide key="safeArea" id="lS7-Hk-vd8"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Preview at..." id="PRJ-UG-QyS">
+                        <barButtonItem key="rightBarButtonItem" title="Clear preview" id="LqJ-mg-AgL">
+                            <connections>
+                                <action selector="clearPreview:" destination="kl8-Ld-5gi" id="rRX-i4-2Tm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="previewDateTimePicker" destination="F3y-a7-IE6" id="wPA-5J-zN0"/>
+                        <outlet property="previewDateTimePicker" destination="F3y-a7-IE6" id="3km-WJ-FEL"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZT3-Im-nq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2XH-ra-G4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="268" y="572"/>
+            <point key="canvasLocation" x="273" y="744"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T4z-wZ-GnF"/>
-        <segue reference="p9S-CQ-CbQ"/>
+        <segue reference="Go2-8l-eoU"/>
+        <segue reference="sSQ-sJ-hoh"/>
     </inferredMetricsTieBreakers>
 </document>
