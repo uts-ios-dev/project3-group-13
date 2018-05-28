@@ -202,7 +202,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dM-i3a">
                                 <rect key="frame" x="297" y="72" width="70" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="fx9-WR-aWi"/>
+                                    <constraint firstAttribute="width" priority="500" constant="70" id="fx9-WR-aWi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                 <nil key="textColor"/>
