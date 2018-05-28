@@ -47,7 +47,13 @@ class OrderViewController: UITableViewController, OrderInformationCellDelegate {
     
     func pressedSendToKitchen(_ sender: OrderInformationCell) {
         let orderConfirmationController = UIAlertController(title: "Send Order to Kitchen", message: "Are you sure you want send order?", preferredStyle: .alert)
-        let confirmOrderAction = UIAlertAction(title: "Confirm", style: .default, handler: nil)
+        let title: String? = "Confirm"
+        let confirmOrderAction = UIAlertAction(title: title, style: UIAlertActionStyle.default) { (alert: UIAlertAction!) in
+           self.clearOrder(alert)
+        }
+//        let confirmOrderAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (alert: UIAlertAction!) in
+//            self.clearOrder(nil)
+//        })
         let cancelOrderAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         orderConfirmationController.addAction(confirmOrderAction)
         orderConfirmationController.addAction(cancelOrderAction)
